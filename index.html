@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Чуйкин Илья</h1>
+    </header>
+    <label for="Vozrast">Возраст: 21</label>
+    <br><br>
+    <pol>Пол: Мужской </pol> <br><br>
+    <p class="pic">
+        <img src="photo.jpeg" width="300" height="320" alt="Фото">
+    </p>
+    <p class="warning">Обновите данные если они не верны</p>
+    <label for="name-input">Фамилия Имя:</label>
+    <input type="text" id="name-input" placeholder="Введите данные">
+    <button id="change-name-btn">Изменить</button>
+    <br><br>
+    <label for="age-input">Возраст</label>
+    <input type="text" id="age-input" placeholder="Введите данные">
+    <button id="change-age-btn">Изменить</button>
+    <br><br>
+    <select id="gender" name="gender" required>
+        <option value="">Выберите пол</option>
+        <option value="Женский">Женский</option>
+        <option value="Мужской">Мужской</option>
+    </select>
+    <button id="change-pol-btn">Изменить</button>
+    <br><br>
+    <label for="married">Женат/Замужем:</label>
+    <input type="checkbox" id="married" name="married">
+    <br>
+    <label for="hobby">Расскажите о себе:</label>
+    <textarea id="hobby" name="hobby"></textarea>
+    <br><br>
+    <button id="change-bg-color-btn">Сменить цвет фона</button>
+    <br> <br>
+    <input type="submit" value="Отправить" onclick="return validate()">
+
+
+    <script>
+        // Изменение имени и фамилии в заголовке
+        document.getElementById('change-name-btn').addEventListener('click', function () {
+            var input = document.getElementById('name-input');
+            var name = input.value;
+            var header = document.querySelector('header h1');
+            header.innerText = name;
+            input.value = '';
+        });
+         // Изменение возраста
+        document.getElementById('change-age-btn').addEventListener('click', function () {
+            var input = document.getElementById('age-input');
+            var age = input.value;
+            var header = document.querySelector('body label');
+            header.innerText = 'Возраст: ' + age;
+            input.value = '';
+        });
+        // Изменение пола
+        document.getElementById('change-pol-btn').addEventListener('click', function () {
+            var input = document.getElementById('gender');
+            var pol = input.value;
+            var header = document.querySelector('body pol');
+            header.innerText = 'Пол: ' + pol;
+            input.value = '';
+        });
+        // Изменение цвета фона
+        document.getElementById('change-bg-color-btn').addEventListener('click', function () {
+            var body = document.querySelector('body');
+            var colors = ['#f00', '#0f0', '#00f', '#ff0', '#0ff', '#f0f'];
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            body.style.backgroundColor = color;
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Calibri, serif;
+       
+    }
+    
+    h1 {
+        color: white;
+        font-size: x-large;
+    }
+
+
+    header {
+        box-shadow: 10px 5px 4px black;
+        background-color: #999999;
+        padding: 20px;
+        text-align: center;
+    }
+    .pic {
+        text-align: center;
+    }
+   
+    .warning {
+        border: 2px solid black;
+        font-size: large;
+        color: green;
+        text-align: center;
+    }
+    .warning:hover {
+        color: #b6ff00;
+    }
+
+
+</style>
